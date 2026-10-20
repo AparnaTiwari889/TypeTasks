@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f5f3ff" />
+  <title>TaskFlow | My Task Manager</title>
+  <link rel="stylesheet" href="./style.css" />
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <a class="brand" href="./">
+        <span class="brand-icon">✓</span>
+        <span>TaskFlow</span>
+      </a>
+      <span class="live-label">
+        <span class="live-dot"></span>
+        My workspace
+      </span>
+    </header>
+
+    <section class="hero">
+      <p class="eyebrow">YOUR PERSONAL WORKSPACE</p>
+      <h1>Make space for<br /><span>what matters.</span></h1>
+      <p class="subtitle">
+        Small steps. Clear priorities. Progress you can see.
+      </p>
+    </section>
+
+    <section class="summary" aria-label="Task summary">
+      <article class="summary-card">
+        <span class="summary-label">TOTAL TASKS</span>
+        <strong id="total-count">0</strong>
+      </article>
+      <article class="summary-card">
+        <span class="summary-label">IN PROGRESS</span>
+        <strong id="progress-count">0</strong>
+      </article>
+      <article class="summary-card">
+        <span class="summary-label">COMPLETED</span>
+        <strong id="done-count">0</strong>
+      </article>
+    </section>
+
+    <section class="task-panel">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">YOUR PLAN</p>
+          <h2>My tasks</h2>
+        </div>
+        <span class="task-counter" id="visible-count">0 tasks</span>
+      </div>
+
+      <form id="task-form" class="task-form">
+        <label class="sr-only" for="title">Task title</label>
+        <input
+          id="title"
+          name="title"
+          type="text"
+          placeholder="What would you like to get done?"
+          maxlength="120"
+          required
+        />
+        <button class="add-button" type="submit">+ Add task</button>
+      </form>
+
+      <p id="form-message" class="form-message" aria-live="polite"></p>
+
+      <div class="filters" aria-label="Filter tasks">
+        <button class="filter-button active" type="button"
+          data-filter="all" aria-pressed="true">All</button>
+        <button class="filter-button" type="button"
+          data-filter="todo" aria-pressed="false">To do</button>
+        <button class="filter-button" type="button"
+          data-filter="in-progress" aria-pressed="false">In progress</button>
+        <button class="filter-button" type="button"
+          data-filter="done" aria-pressed="false">Done</button>
+      </div>
+
+      <ul id="task-list" class="task-list" aria-live="polite"></ul>
+    </section>
+
+    <footer>
+      <p>Built with TypeScript, one task at a time.</p>
+    </footer>
+  </main>
+</body>
+</html>
